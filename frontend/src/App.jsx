@@ -4,6 +4,7 @@ import Home from './components/frontend/Home';
 import About from './components/frontend/About';
 import './assets/css/style.scss';
 
+
 function App() {
   
 
