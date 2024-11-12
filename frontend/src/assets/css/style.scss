@@ -207,3 +207,34 @@ footer {
     margin-bottom: 20px;
   }
 }
+
+.section-5{
+  .swiper{
+    padding: 25px 25px 50px 25px;
+    .swiper-pagination-bullet-active{
+      background-color: #9e9b9b;
+    }
+  }
+  .card{
+    border-radius: 40px;
+    .card-body{
+      .rating{
+        color: #ffd321;
+      }
+      .content{
+        p{
+          font-size: 1em;
+        }
+      }
+      .meta{
+        img{
+          border-radius: 50%;
+        }
+      }
+      .name{
+        font-size: 1.3em;
+        font-weight: 500;
+      }
+    }
+  }
+}
