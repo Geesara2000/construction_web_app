@@ -266,3 +266,41 @@ footer {
     }
   }
 }
+
+.section-7{
+  .hero {
+    min-height: 500px;
+    color: white;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)),
+      url("../images/hero.jpg");
+
+    span {
+      font-size: 1.5em;
+      font-weight: 500;
+      color: yellow;
+    }
+  }
+}
+
+.section-8{
+  .card{
+    border-radius: 40px;
+    img{
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+    }
+    .card-body{
+      a.title{
+        font-size: 1.4em;
+      }
+      .card-title{
+        font-size: 1.5em;
+        font-weight: 500;
+      }
+      .card-sub-title{
+        font-size: 1.3em;
+        color: #9e9b9b;
+      }
+    }
+  }
+}
