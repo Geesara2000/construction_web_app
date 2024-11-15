@@ -57,100 +57,100 @@ const Home = () => {
                 residential, commercial, and industrial projects.
               </p>
             </div>
+            <div className="row pt-4">
+            <div className="col-md-3 col-lg-3">
+              <div className="item">
+                <div className="service-image">
+                  <img src={ServiceImg} className="w-100" />
+                </div>
+                <div className="service-body">
+                  <div className="service-title">
+                    <h3>Specialty Construction</h3>
+                  </div>
+                  <div className="service-content">
+                    <p>
+                      Corporate construction is a specialized sector within the
+                      construction industry that focuses on developing and
+                      constructing buildings and facilities designed for
+                      business operations.
+                    </p>
+                  </div>
+                  <a href="#" className="btn btn-primary small">
+                    Read more
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-3 col-lg-3">
+              <div className="item">
+                <div className="service-image">
+                  <img src={ServiceImg} className="w-100" />
+                </div>
+                <div className="service-body">
+                  <div className="service-title">
+                    <h3>Specialty Construction</h3>
+                  </div>
+                  <div className="service-content">
+                    <p>
+                      Corporate construction is a specialized sector within the
+                      construction industry that focuses on developing and
+                      constructing buildings and facilities designed for
+                      business operations.
+                    </p>
+                  </div>
+                  <a href="#" className="btn btn-primary small">
+                    Read more
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-3 col-lg-3">
+              <div className="item">
+                <div className="service-image">
+                  <img src={ServiceImg} className="w-100" />
+                </div>
+                <div className="service-body">
+                  <div className="service-title">
+                    <h3>Specialty Construction</h3>
+                  </div>
+                  <div className="service-content">
+                    <p>
+                      Corporate construction is a specialized sector within the
+                      construction industry that focuses on developing and
+                      constructing buildings and facilities designed for
+                      business operations.
+                    </p>
+                  </div>
+                  <a href="#" className="btn btn-primary small">
+                    Read more
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-3 col-lg-3">
+              <div className="item">
+                <div className="service-image">
+                  <img src={ServiceImg} className="w-100" />
+                </div>
+                <div className="service-body">
+                  <div className="service-title">
+                    <h3>Specialty Construction</h3>
+                  </div>
+                  <div className="service-content">
+                    <p>
+                      Corporate construction is a specialized sector within the
+                      construction industry that focuses on developing and
+                      constructing buildings and facilities designed for
+                      business operations.
+                    </p>
+                  </div>
+                  <a href="#" className="btn btn-primary small">
+                    Read more
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="row pt-4">
-            <div className="col-md-3 col-lg-3">
-              <div className="item">
-                <div className="service-image">
-                  <img src={ServiceImg} className="w-100" />
-                </div>
-                <div className="service-body">
-                  <div className="service-title">
-                    <h3>Specialty Construction</h3>
-                  </div>
-                  <div className="service-content">
-                    <p>
-                      Corporate construction is a specialized sector within the
-                      construction industry that focuses on developing and
-                      constructing buildings and facilities designed for
-                      business operations.
-                    </p>
-                  </div>
-                  <a href="#" className="btn btn-primary small">
-                    Read more
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 col-lg-3">
-              <div className="item">
-                <div className="service-image">
-                  <img src={ServiceImg} className="w-100" />
-                </div>
-                <div className="service-body">
-                  <div className="service-title">
-                    <h3>Specialty Construction</h3>
-                  </div>
-                  <div className="service-content">
-                    <p>
-                      Corporate construction is a specialized sector within the
-                      construction industry that focuses on developing and
-                      constructing buildings and facilities designed for
-                      business operations.
-                    </p>
-                  </div>
-                  <a href="#" className="btn btn-primary small">
-                    Read more
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 col-lg-3">
-              <div className="item">
-                <div className="service-image">
-                  <img src={ServiceImg} className="w-100" />
-                </div>
-                <div className="service-body">
-                  <div className="service-title">
-                    <h3>Specialty Construction</h3>
-                  </div>
-                  <div className="service-content">
-                    <p>
-                      Corporate construction is a specialized sector within the
-                      construction industry that focuses on developing and
-                      constructing buildings and facilities designed for
-                      business operations.
-                    </p>
-                  </div>
-                  <a href="#" className="btn btn-primary small">
-                    Read more
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 col-lg-3">
-              <div className="item">
-                <div className="service-image">
-                  <img src={ServiceImg} className="w-100" />
-                </div>
-                <div className="service-body">
-                  <div className="service-title">
-                    <h3>Specialty Construction</h3>
-                  </div>
-                  <div className="service-content">
-                    <p>
-                      Corporate construction is a specialized sector within the
-                      construction industry that focuses on developing and
-                      constructing buildings and facilities designed for
-                      business operations.
-                    </p>
-                  </div>
-                  <a href="#" className="btn btn-primary small">
-                    Read more
-                  </a>
-                </div>
-              </div>
-            </div>
           </div>
           <div className="text-center">
             <a className="btn btn-primary small">View all Services</a>
@@ -231,8 +231,7 @@ const Home = () => {
                 residential, commercial, and industrial projects.
               </p>
             </div>
-          </div>
-          <div className="row pt-4">
+            <div className="row pt-4">
             <div className="col-md-3 col-lg-3">
               <div className="item">
                 <div className="service-image">
@@ -258,7 +257,7 @@ const Home = () => {
             <div className="col-md-3 col-lg-3">
               <div className="item">
                 <div className="service-image">
-                  <img src={ServiceImg} className="w-100" />
+                  <img src={ConstructionImg} className="w-100" />
                 </div>
                 <div className="service-body">
                   <div className="service-title">
@@ -280,7 +279,7 @@ const Home = () => {
             <div className="col-md-3 col-lg-3">
               <div className="item">
                 <div className="service-image">
-                  <img src={ServiceImg} className="w-100" />
+                  <img src={ConstructionImg} className="w-100" />
                 </div>
                 <div className="service-body">
                   <div className="service-title">
@@ -302,7 +301,7 @@ const Home = () => {
             <div className="col-md-3 col-lg-3">
               <div className="item">
                 <div className="service-image">
-                  <img src={ServiceImg} className="w-100" />
+                  <img src={ConstructionImg} className="w-100" />
                 </div>
                 <div className="service-body">
                   <div className="service-title">
@@ -322,6 +321,8 @@ const Home = () => {
               </div>
             </div>
           </div>
+          </div>
+          
           <div className="text-center">
             <a className="btn btn-primary small">View all Projects</a>
           </div>

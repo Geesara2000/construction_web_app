@@ -3,27 +3,20 @@ import Header from "../common/Header";
 import Footer from "../common/Footer";
 import { default as AboutNew } from "../common/About";
 import MemberImg from "../../assets/images/team1.jpg";
+import Hero from "../common/Hero";
 
 const About = () => {
   return (
     <>
       <Header />
       <main>
-        <section className="section-7">
-          <div className="hero d-flex align-items-center">
-            <div className="container">
-              <div className="text-left">
-                <span>Quality | Itigrity | Value</span>
-                <h1>About Us</h1>
-                <p>
-                  We offer a diverse array of construction services,
+        <Hero 
+          preHeading='Quality | Itigrity | Value'
+          heading='About Us'
+          text='We offer a diverse array of construction services,
                   <br /> spanning residential, commercial, and industrial
-                  projects
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+                  projects'
+        />
         <AboutNew />
         <section className="section-8 bg-light py-5">
           <div className="container">
