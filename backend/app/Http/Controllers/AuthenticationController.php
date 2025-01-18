@@ -10,21 +10,27 @@ use Illuminate\Support\Facades\Validator;
 class AuthenticationController extends Controller
 {
     public function authenticate(Request $request){
+
         //apply validation
         $validator = validator::make($request->all(),[
             'email' => 'required|email',
             'password' => 'required',
         ]);
+
         if($validator->fails()){
+
             return response()->json([
                 'status' => false,
                 'errors' => $validator->errors()
             ]);
+
         }else{
+
             $credetials = [
                 'email' => $request->email,
                 'password' => $request->password,
             ];
+
             if(Auth::attempt($credetials)){
 
                 $user = User::find(Auth::user()->id);
@@ -35,11 +41,14 @@ class AuthenticationController extends Controller
                     'id' => Auth::user()->id
                 ]);
 
+
             }else{
+
                 return response()->json([
                     'status' => false,
                     'message' => 'Either email/password is incorrect'
                 ]);
+
             }
         }
     }
@@ -53,5 +62,6 @@ class AuthenticationController extends Controller
             'message' => 'Logout succesfully.'
         ]);
     }
+
 }
 
