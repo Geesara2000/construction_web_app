@@ -63,9 +63,22 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Service $service)
+    public function show($id)
     {
-        //
+        $service = Service::find($id);
+
+        if($service == null){
+            return response()->json([
+                'status'=>false,
+                'errors'=>'service not found'
+            ]);
+        }
+
+        return response()->json([
+            'status'=>true,
+            'data'=>$service,
+            'errors'=>'service updated successfuly'
+        ]);
     }
 
     /**
