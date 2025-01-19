@@ -77,7 +77,6 @@ class ServiceController extends Controller
         return response()->json([
             'status'=>true,
             'data'=>$service,
-            'errors'=>'service updated successfuly'
         ]);
     }
 
@@ -131,8 +130,23 @@ class ServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Service $service)
+    public function destroy($id)
     {
-        //
+
+        $service = Service::find($id);
+
+        if($service == null){
+            return response()->json([
+                'status'=>false,
+                'errors'=>'service not found'
+            ]);
+        }
+
+        $service->delete();
+
+        return response()->json([
+            'status'=>true,
+            'massage'=>'service deleted successfully'
+        ]);
     }
 }
