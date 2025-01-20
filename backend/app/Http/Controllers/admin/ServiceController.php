@@ -91,7 +91,7 @@ class ServiceController extends Controller
 
         return response()->json([
             'status'=>true,
-            'errors'=>'service added successfuly'
+            'massage'=>'service added successfuly'
         ]);
     }
 
