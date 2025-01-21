@@ -175,4 +175,21 @@ class ProjectController extends Controller
             'message'=>'Project updated successfully.'
         ]);
     }
+
+    public function show($id){
+
+        $project = Project::find($id);
+
+        if($project == null){
+            return response()->json([
+                'status'=>false,
+                'message'=>'Project not found'
+            ]);
+        }
+
+        return response()->json([
+            'status'=>true,
+            'data'=>$project
+        ]);
+    }
 }
