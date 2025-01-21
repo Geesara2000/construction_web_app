@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth:sanctum']],function(){
         //project routes
         Route::post('projects', [ProjectController::class,'store']);
         Route::get('projects', [ProjectController::class,'index']);
+        Route::put('projects/{id}', [ProjectController::class,'update']);
 
         //Temp Image route
         Route::post('temp-images', [TempImageController::class,'store']);
