@@ -4,6 +4,7 @@ import Sidebar from '../../common/Sidebar'
 import { Link } from 'react-router-dom'
 import Footer from '../../common/Footer'
 import { apiUrl, token } from '../../common/http'
+import { toast } from 'react-toastify'
 
 const Show = () => {
 
@@ -22,8 +23,25 @@ const Show = () => {
         setProjects(result.data);
     }
 
-    const deleteProject = () => {
-      
+    const deleteProject = async (id) => {
+
+      if(confirm("are you sure you want to delete?")){
+        const res = await fetch(apiUrl+'projects/'+id ,{
+          'method'  : 'DELETE',
+          'headers' : {
+              'Content-type' : 'application/json',
+              'Accept' : 'application/json',
+              'Authorization' : `Bearer ${token()}`
+          }
+      });
+      const result = await res.json();
+
+      if(result.status == true){
+        toast.success(result.message);
+       const newProjects = projects.filter(project => project.id != id)
+       setProjects(newProjects)
+      }
+      }
     }
 
     useEffect(() => {
@@ -75,7 +93,7 @@ const Show = () => {
                                             }
                                           </td>
                                           <td>
-                                            <Link to={`/admin/services/edit/${project.id}`} className='btn btn-primary btn-sm ms-2'>Edit</Link>
+                                            <Link to={`/admin/projects/edit/${project.id}`} className='btn btn-primary btn-sm ms-2'>Edit</Link>
                                             <Link onClick={() => deleteProject(project.id)} href="#" className='btn btn-danger btn-sm ms-2'>DELETE</Link>
                                           </td>
                                         </tr>
