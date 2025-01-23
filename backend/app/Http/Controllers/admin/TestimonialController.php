@@ -14,7 +14,13 @@ use Intervention\Image\Drivers\Gd\Driver;
 class TestimonialController extends Controller
 {
     //return all testimonial
-    public function index() {}
+    public function index() {
+        $tetimonials = Testimonial::orderBy('created_at','DESC')->get();
+        return response()->json([
+            'status'=>true,
+            'data'=>$tetimonials
+        ]);
+    }
 
     //return all single testimonial
     public function show() {}
