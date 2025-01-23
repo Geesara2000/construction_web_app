@@ -71,7 +71,7 @@ class TestimonialController extends Controller
 
                 //create small thumbnail here
                 $sourcePath = public_path('uploads/temp/'.$tempImage->name);
-                $destPath = public_path('uploads/testimonials/small/'.$fileName);
+                $destPath = public_path('uploads/testimonials/'.$fileName);
                 $manager = new ImageManager(Driver::class);
                 $image = $manager->read($sourcePath);
                 $image->coverDown(300, 300);
@@ -87,6 +87,69 @@ class TestimonialController extends Controller
         return response()->json([
             'status'=>true,
             'message'=>'Testimonial added successfully.'
+        ]);
+    }
+
+
+    //update a testimonial
+    public function update($id, Request $request)
+    {
+        $testimonial = Testimonial::find($id);
+
+        if($testimonial == null){
+            return response()->json([
+                'status'=>false,
+                'messsage'=>'Testimonial not found'
+            ]);
+        }
+
+        $validator = Validator::make($request->all(), [
+            'testimonial' => 'required',
+            'citation' => 'required|unique:projects,slug'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'errors' => $validator->errors()
+            ]);
+        }
+
+
+        $testimonial->testimonial = $request->testimonial;
+        $testimonial->citation = $request->citation;
+        $testimonial->save();
+
+        if($request->imageId > 0){
+            $oldImage = $testimonial->image;
+            $tempImage = TempImage::find($request->imageId);
+            if($tempImage != null){
+                $extArray = explode('.',$tempImage->name);
+                $ext = last($extArray);
+
+                $fileName = strtotime('now').$testimonial->id.'.'.$ext;
+
+                //create small thumbnail here
+                $sourcePath = public_path('uploads/temp/'.$tempImage->name);
+                $destPath = public_path('uploads/testimonials/'.$fileName);
+                $manager = new ImageManager(Driver::class);
+                $image = $manager->read($sourcePath);
+                $image->coverDown(300, 300);
+                $image->save($destPath);
+
+                $testimonial->image = $fileName;
+                $testimonial->save();
+
+                if($oldImage != ''){
+                    File::delete(public_path('uploads/testimonial/'.$oldImage));
+                }
+
+            }
+        }
+
+        return response()->json([
+            'status'=>true,
+            'message'=>'Testimonial updated successfully.'
         ]);
     }
 }

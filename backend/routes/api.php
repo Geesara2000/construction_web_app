@@ -46,6 +46,7 @@ Route::group(['middleware' => ['auth:sanctum']],function(){
         Route::post('testimonials', [TestimonialController::class,'store']);
         Route::get('testimonials', [TestimonialController::class,'index']);
         Route::get('testimonials/{id}', [TestimonialController::class,'show']);
+        Route::put('testimonials/{id}', [TestimonialController::class,'update']);
 
         //Temp Image route
         Route::post('temp-images', [TempImageController::class,'store']);
