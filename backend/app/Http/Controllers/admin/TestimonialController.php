@@ -152,4 +152,26 @@ class TestimonialController extends Controller
             'message'=>'Testimonial updated successfully.'
         ]);
     }
+
+    public function destroy($id){
+        $testimonial = Testimonial::find($id);
+
+        if($testimonial == null){
+            return response()->json([
+                'status'=>false,
+                'messsage'=>'Testimonial not found'
+            ]);
+        }
+
+        if($testimonial != ''){
+            File::delete(public_path('uploads/testimonial/'.$testimonial->image));
+        }
+        $testimonial->delete();
+
+        return response()->json([
+            'status'=>true,
+            'message'=>'Testimonial deleted successfully.'
+        ]);
+
+    }
 }
