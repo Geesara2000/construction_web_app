@@ -23,7 +23,21 @@ class TestimonialController extends Controller
     }
 
     //return all single testimonial
-    public function show() {}
+    public function show($id) {
+        $testimonial = Testimonial::find($id);
+
+        if($testimonial == null){
+            return response()->json([
+                'status'=>false,
+                'messsage'=>'Testimonial not found'
+            ]);
+        }
+
+        return response()->json([
+            'status'=>true,
+            'data'=>$testimonial
+        ]);
+    }
 
     //store/insert a testimonial
     public function store(Request $request)
