@@ -22,6 +22,28 @@ const Show = () => {
       setMembers(result.data);
     };
 
+    const deleteMember = async (id) => {
+        if (confirm("are you sure you want to delete")) {
+          const res = await fetch(apiUrl + "members/" + id, {
+            method: "DELETE",
+            headers: {
+              "Content-type": "application/json",
+              Accept: "application/json",
+              Authorization: `Bearer ${token()}`,
+            },
+          });
+          const result = await res.json();
+    
+          if (result.status == true) {
+            const newMembers = members.filter((member) => member.id != id);
+            setMembers(newMembers);
+            toast.success(result.message);
+          } else {
+            toast.error(result.message);
+          }
+        }
+      };
+
     useEffect(() => {
       fetchMembers();
       }, []);
@@ -79,7 +101,7 @@ const Show = () => {
                                   Edit
                                 </Link>
                                 <Link
-                                  onClick={() => deleteService(member.id)}
+                                  onClick={() => deleteMember(member.id)}
                                   href="#"
                                   className="btn btn-danger btn-sm ms-2"
                                 >
