@@ -28,4 +28,21 @@ class ServiceController extends Controller
             'data'=>$services
         ]);
     }
+
+
+    //return a single service
+    public function service($id){
+        $service = Service::find($id);
+
+        if($service == null){
+            return response()->json([
+                'status'=>false,
+                'message'=>'service not found'
+            ]);
+        }
+        return response()->json([
+            'status'=>true,
+            'data'=>$service
+        ]);
+    }
 }

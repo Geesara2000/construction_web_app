@@ -25,6 +25,7 @@ import {default as EditTestimonials} from './components/backend/testimonials/Edi
 import {default as ShowMembers} from './components/backend/members/Show';
 import {default as CreateMembers} from './components/backend/members/Create';
 import {default as EditMembers} from './components/backend/members/Edit';
+import ServiceDetail from './components/frontend/ServiceDetail';
 
 function App() {
   
@@ -36,10 +37,10 @@ function App() {
             <Route path='/' element={<Home/>} />
             <Route path='/about' element={<About/>} />
             <Route path='/services' element={<Services/>} />           
-            <Route path='/projects' element={<Projects/>} />           
-                      
+            <Route path='/projects' element={<Projects/>} />              
             <Route path='/contact' element={<Contact/>} /> 
             <Route path='/admin/login' element={<Login/>} />    
+            <Route path='/service/:id' element={<ServiceDetail/>} />    
 
             <Route path='/admin/dashboard' element={
               <RequireAuth>
