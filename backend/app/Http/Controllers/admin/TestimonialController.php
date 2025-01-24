@@ -58,6 +58,7 @@ class TestimonialController extends Controller
         $testimonial = new Testimonial();
         $testimonial->testimonial = $request->testimonial;
         $testimonial->citation = $request->citation;
+        $testimonial->designation = $request->designation;
         $testimonial->save();
 
         if($request->imageId > 0){
@@ -118,6 +119,7 @@ class TestimonialController extends Controller
 
         $testimonial->testimonial = $request->testimonial;
         $testimonial->citation = $request->citation;
+        $testimonial->designation = $request->designation;
         $testimonial->save();
 
         if($request->imageId > 0){

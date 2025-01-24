@@ -4,6 +4,7 @@ import Sidebar from "../../common/Sidebar";
 import { Link } from "react-router-dom";
 import Footer from "../../common/Footer";
 import { apiUrl, token } from "../../common/http";
+import { toast } from "react-toastify";
 
 const Show = () => {
   const [testimonials, setTestimonials] = useState([]);
@@ -19,6 +20,28 @@ const Show = () => {
     });
     const result = await res.json();
     setTestimonials(result.data);
+  };
+
+  const deleteTestimonial = async (id) => {
+    if (confirm("are you sure you want to delete")) {
+      const res = await fetch(apiUrl + "testimonials/" + id, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+          Accept: "application/json",
+          Authorization: `Bearer ${token()}`,
+        },
+      });
+      const result = await res.json();
+
+      if (result.status == true) {
+        const newTestimonials = testimonials.filter((testimonial) => testimonial.id != id);
+        setTestimonials(newTestimonials);
+        toast.success(result.message);
+      } else {
+        toast.error(result.message);
+      }
+    }  
   };
 
   useEffect(() => {
@@ -41,7 +64,7 @@ const Show = () => {
                   <div className="d-flex justify-content-between">
                     <h4 className="h5">Testimonials</h4>
                     <Link
-                      to="/admin/services/create"
+                      to="/admin/testimonials/create"
                       className="btn btn-primary"
                     >
                       Create
@@ -61,7 +84,7 @@ const Show = () => {
                     </thead>
                     <tbody>
                       {testimonials &&
-                        testimonials.map((service) => {
+                        testimonials.map((testimonial) => {
                           return (
                             <tr key={`service-${testimonial.id}`}>
                               <td>{testimonial.id}</td>
@@ -72,13 +95,15 @@ const Show = () => {
                               </td>
                               <td>
                                 <Link
-                                  to={`/admin/services/edit/${testimonial.id}`}
+                                  to={`/admin/testimonials/edit/${testimonial.id}`}
                                   className="btn btn-primary btn-sm ms-2"
                                 >
                                   Edit
                                 </Link>
                                 <Link
-                                  onClick={() => deleteService(testimonial.id)}
+                                  onClick={() =>
+                                    deleteTestimonial(testimonial.id)
+                                  }
                                   href="#"
                                   className="btn btn-danger btn-sm ms-2"
                                 >
