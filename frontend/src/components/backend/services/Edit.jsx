@@ -68,10 +68,10 @@ const Edit = ({placeholder}) => {
                   const result = await res.json();
               
               if(result.status==true ){
-                toast.success(result.massage);
+                toast.success(result.message);
                 navigate('/admin/services');
               }else{
-                toast.error(result.massage);
+                toast.error(result.message);
               }
       }
 

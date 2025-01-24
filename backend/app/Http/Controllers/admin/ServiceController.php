@@ -93,7 +93,7 @@ class ServiceController extends Controller
 
         return response()->json([
             'status'=>true,
-            'massage'=>'service added successfuly'
+            'message'=>'service added successfuly'
         ]);
     }
 
@@ -199,7 +199,7 @@ class ServiceController extends Controller
 
         return response()->json([
             'status'=>true,
-            'massage'=>'service updated successfuly'
+            'message'=>'service updated successfuly'
         ]);
     }
 
@@ -225,7 +225,7 @@ class ServiceController extends Controller
 
         return response()->json([
             'status'=>true,
-            'massage'=>'service deleted successfully'
+            'message'=>'service deleted successfully'
         ]);
     }
 }

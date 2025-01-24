@@ -1,121 +1,128 @@
-import React, { useEffect, useState } from 'react'
-import Header from '../../common/Header'
-import Footer from '../../common/Footer'
-import Sidebar from '../../common/Sidebar'
-import { apiUrl, token } from '../../common/http'
-import { Link } from 'react-router-dom'
-import { toast } from 'react-toastify'
+import React, { useEffect, useState } from "react";
+import Header from "../../common/Header";
+import Footer from "../../common/Footer";
+import Sidebar from "../../common/Sidebar";
+import { apiUrl, token } from "../../common/http";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Show = () => {
-
   const [services, setServices] = useState([]);
 
   const fetchServices = async () => {
-      const res = await fetch(apiUrl+'services' ,{
-          'method'  : 'GET',
-          'headers' : {
-              'Content-type' : 'application/json',
-              'Accept' : 'application/json',
-              'Authorization' : `Bearer ${token()}`
-          }
-      });
-      const result = await res.json();
-      setServices(result.data);
-  }
+    const res = await fetch(apiUrl + "services", {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${token()}`,
+      },
+    });
+    const result = await res.json();
+    setServices(result.data);
+  };
 
   const deleteService = async (id) => {
+    if (confirm("are you sure you want to delete")) {
+      const res = await fetch(apiUrl + "services/" + id, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+          Accept: "application/json",
+          Authorization: `Bearer ${token()}`,
+        },
+      });
+      const result = await res.json();
 
-    if(confirm("are you sure you want to delete")){
-
-    }
-
-    const res = await fetch(apiUrl+'services/'+id ,{
-      'method'  : 'DELETE',
-      'headers' : {
-          'Content-type' : 'application/json',
-          'Accept' : 'application/json',
-          'Authorization' : `Bearer ${token()}`
+      if (result.status == true) {
+        const newServices = services.filter((service) => service.id != id);
+        setServices(newServices);
+        toast.success(result.message);
+      } else {
+        toast.error(result.message);
       }
-  });
-  const result = await res.json();
-  
-  if(result.status==true){
-    const newServices = services.filter(service => service.id != id)
-    setServices(newServices);
-    toast.success(result.massage);
-  }else{
-    toast.error(result.massage);
-  }
+    }
+  };
 
-  }
-
-      useEffect(() => {
-        fetchServices();
-      },[])
+  useEffect(() => {
+    fetchServices();
+  }, []);
 
   return (
     <>
-      <Header/>
-          <main>
-              <div className="container my-5">
-              <div className='row'>
-                <div className='col-md-3'>
-                  <Sidebar/>
-                </div>
-                
-                
-                <div className='col-md-9'>
-                    <div className="card shadow border-0">
-                        <div className="card-body  p-4">
-                            <div className="d-flex justify-content-between">
-                                <h4 className='h5'>services</h4>
-                                <Link to="/admin/services/create" className='btn btn-primary'>Create</Link>
-                            </div>
-                            <hr />
+      <Header />
+      <main>
+        <div className="container my-5">
+          <div className="row">
+            <div className="col-md-3">
+              <Sidebar />
+            </div>
 
-                            <table className='table table-striped'>
-                                <thead>
-                                  <tr>
-                                     <th>ID</th>
-                                     <th>Name</th>
-                                     <th>Slug</th>
-                                     <th>Status</th>
-                                     <th>Action</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  {
-                                    services && services.map(service => {
-                                     return (
-                                        <tr key={`service-${service.id}`}>
-                                          <td>{service.id}</td>
-                                          <td>{service.title}</td>
-                                          <td>{service.slug}</td>
-                                          <td>{service.status}</td>
-                                          <td>
-                                            {
-                                              (service.status == 1) ? 'Active':'block'
-                                            }
-                                          </td>
-                                          <td>
-                                            <Link to={`/admin/services/edit/${service.id}`} className='btn btn-primary btn-sm ms-2'>Edit</Link>
-                                            <Link onClick={() => deleteService(service.id)} href="#" className='btn btn-danger btn-sm ms-2'>DELETE</Link>
-                                          </td>
-                                        </tr>
-                                      )
-                                    })
-                                  }                                 
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+            <div className="col-md-9">
+              <div className="card shadow border-0">
+                <div className="card-body  p-4">
+                  <div className="d-flex justify-content-between">
+                    <h4 className="h5">services</h4>
+                    <Link
+                      to="/admin/services/create"
+                      className="btn btn-primary"
+                    >
+                      Create
+                    </Link>
+                  </div>
+                  <hr />
+
+                  <table className="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Slug</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {services &&
+                        services.map((service) => {
+                          return (
+                            <tr key={`service-${service.id}`}>
+                              <td>{service.id}</td>
+                              <td>{service.title}</td>
+                              <td>{service.slug}</td>
+                              <td>{service.status}</td>
+                              <td>
+                                {service.status == 1 ? "Active" : "block"}
+                              </td>
+                              <td>
+                                <Link
+                                  to={`/admin/services/edit/${service.id}`}
+                                  className="btn btn-primary btn-sm ms-2"
+                                >
+                                  Edit
+                                </Link>
+                                <Link
+                                  onClick={() => deleteService(service.id)}
+                                  href="#"
+                                  className="btn btn-danger btn-sm ms-2"
+                                >
+                                  DELETE
+                                </Link>
+                              </td>
+                            </tr>
+                          );
+                        })}
+                    </tbody>
+                  </table>
                 </div>
               </div>
-              </div>
-          </main>
-      <Footer/>
+            </div>
+          </div>
+        </div>
+      </main>
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Show
+export default Show;
