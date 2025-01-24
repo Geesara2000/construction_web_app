@@ -19,6 +19,8 @@ import {default as CreateProjects} from './components/backend/projects/Create';
 import {default as EditProjects} from './components/backend/projects/Edit';
 
 import {default as ShowTestimonials} from './components/backend/testimonials/Show';
+import {default as CreateTestimonials} from './components/backend/testimonials/Create';
+import {default as EditTestimonials} from './components/backend/testimonials/Edit';
 
 
 
@@ -83,6 +85,18 @@ function App() {
             <Route path='/admin/testimonials' element={
               <RequireAuth>
                 <ShowTestimonials/>
+              </RequireAuth>
+            } />
+
+            <Route path='/admin/testimonials/create' element={
+              <RequireAuth>
+                <CreateTestimonials/>
+              </RequireAuth>
+            } />
+
+            <Route path='/admin/testimonials/edit/:id' element={
+              <RequireAuth>
+                <EditTestimonials/>
               </RequireAuth>
             } />
 
