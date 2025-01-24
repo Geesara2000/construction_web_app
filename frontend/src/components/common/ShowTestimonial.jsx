@@ -59,7 +59,7 @@ const ShowTestimonial = () => {
                 {
                   testimonials && testimonials.map(testimonial=>{
                       return(
-                        <SwiperSlide key={testimonial.id}>
+                        <SwiperSlide key={`testimonial-${testimonial.id}`}>
                         <div className="card shadow border-0">
                           <div className="card-body p-5">
                             <div className="rating">

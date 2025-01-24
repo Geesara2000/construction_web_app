@@ -10,6 +10,7 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\front\ServiceController as FrontServiceController;
 use App\Http\Controllers\front\ProjectController as FrontProjectController;
 use App\Http\Controllers\front\TestimonialController as FrontTestimonialController;
+use App\Http\Controllers\front\MemberController as FrontMemberController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,8 @@ Route::get('get-projects', [FrontProjectController::class,'index']);
 Route::get('get-latest-projects', [FrontProjectController::class,'latestprojects']);
 
 Route::get('get-testimonials', [FrontTestimonialController::class,'index']);
+
+Route::get('get-members', [FrontMemberController::class,'index']);
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
