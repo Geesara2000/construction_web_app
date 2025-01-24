@@ -18,6 +18,8 @@ import {default as ShowProjects} from './components/backend/projects/Show';
 import {default as CreateProjects} from './components/backend/projects/Create';
 import {default as EditProjects} from './components/backend/projects/Edit';
 
+import {default as ShowTestimonials} from './components/backend/testimonials/Show';
+
 
 
 
@@ -75,6 +77,12 @@ function App() {
             <Route path='/admin/projects/edit/:id' element={
               <RequireAuth>
                 <EditProjects/>
+              </RequireAuth>
+            } />
+            
+            <Route path='/admin/testimonials' element={
+              <RequireAuth>
+                <ShowTestimonials/>
               </RequireAuth>
             } />
 
