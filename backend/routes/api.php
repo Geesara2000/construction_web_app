@@ -56,6 +56,7 @@ Route::group(['middleware' => ['auth:sanctum']],function(){
         //member routes
         Route::post('members', [MemberController::class,'store']);
         Route::get('members', [MemberController::class,'index']);
+        Route::get('members/{id}', [MemberController::class,'show']);
 
         //Temp Image route
         Route::post('temp-images', [TempImageController::class,'store']);
