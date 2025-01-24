@@ -14,7 +14,11 @@ class MemberController extends Controller
 {
     //return all members
     public function index(){
-
+        $members = Member::orderBy('created_at','DESC')->get();
+        return response()->json([
+            'status'=>true,
+            'data'=>$members
+        ]);
     }
 
     //insert/store members
