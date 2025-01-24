@@ -23,7 +23,7 @@ import {default as CreateTestimonials} from './components/backend/testimonials/C
 import {default as EditTestimonials} from './components/backend/testimonials/Edit';
 
 import {default as ShowMembers} from './components/backend/members/Show';
-
+import {default as CreateMembers} from './components/backend/members/Create';
 
 
 function App() {
@@ -104,6 +104,12 @@ function App() {
             <Route path='/admin/members' element={
               <RequireAuth>
                 <ShowMembers/>
+              </RequireAuth>
+            } />
+
+            <Route path='/admin/members/create' element={
+              <RequireAuth>
+                <CreateMembers/>
               </RequireAuth>
             } />
 
