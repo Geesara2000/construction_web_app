@@ -74,12 +74,10 @@ const ServiceDetail = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="row">
-                     <div className="col-md-12">
-                        <ShowTestimonial/>
-                     </div>
-                  </div>
                 </div>
+            </section>
+            <section className='section-11 bg-light py-5'>
+             <ShowTestimonial/>
             </section>
 
         </main>

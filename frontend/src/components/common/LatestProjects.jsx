@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { apiUrl, fileUrl } from "./http";
+import { Link } from "react-router-dom";
 
 const LatestProjects = () => {
 
@@ -46,9 +47,9 @@ const LatestProjects = () => {
                       <div className="service-content">
                         <p>{project.short_desc}</p>
                       </div>
-                      <a href="#" className="btn btn-primary small">
+                      <Link to={`/project/${project.id}`} className="btn btn-primary small">
                         Read more
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

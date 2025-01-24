@@ -26,6 +26,7 @@ import {default as ShowMembers} from './components/backend/members/Show';
 import {default as CreateMembers} from './components/backend/members/Create';
 import {default as EditMembers} from './components/backend/members/Edit';
 import ServiceDetail from './components/frontend/ServiceDetail';
+import ProjectDetail from './components/frontend/ProjectDetail';
 
 function App() {
   
@@ -41,6 +42,7 @@ function App() {
             <Route path='/contact' element={<Contact/>} /> 
             <Route path='/admin/login' element={<Login/>} />    
             <Route path='/service/:id' element={<ServiceDetail/>} />    
+            <Route path='/project/:id' element={<ProjectDetail/>} />    
 
             <Route path='/admin/dashboard' element={
               <RequireAuth>
