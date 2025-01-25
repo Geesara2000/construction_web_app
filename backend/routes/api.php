@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\TempImageController;
 use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\front\ContactController;
 use App\Http\Controllers\front\ServiceController as FrontServiceController;
 use App\Http\Controllers\front\ProjectController as FrontProjectController;
 use App\Http\Controllers\front\TestimonialController as FrontTestimonialController;
@@ -18,6 +19,7 @@ Route::post('authenticate', [AuthenticationController::class,'authenticate']);
 Route::get('get-services', [FrontServiceController::class,'index']);
 Route::get('get-latest-services', [FrontServiceController::class,'latestServices']);
 Route::get('get-service/{id}', [FrontServiceController::class,'service']);
+Route::post('contact-now', [ContactController::class,'index']);
 
 Route::get('get-projects', [FrontProjectController::class,'index']);
 Route::get('get-latest-projects', [FrontProjectController::class,'latestprojects']);
